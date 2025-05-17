@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false
+    // Ensure other necessary build options are set if not inherited properly
+    // e.g., declaration, declarationMap, sourceMap should be true from ./tsconfig.json
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "__tests__",
+    "**/*.spec.ts",
+    "**/*.test.ts"
+  ]
+}

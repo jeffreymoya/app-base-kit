@@ -1,0 +1,43 @@
+{
+  "name": "@app-base-kit/mobile-sdk",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Mobile SDK for App Base Kit",
+  "keywords": [
+    "react-native",
+    "ios",
+    "android"
+  ],
+  "license": "MIT",
+  "author": "Your Name <you@example.com> (https://example.com)",
+  "devDependencies": {
+    "react-native-builder-bob": "^0.40.11"
+  },
+  "main": "./lib/commonjs/index.js",
+  "scripts": {
+    "prepare": "bob build"
+  },
+  "files": [
+    "src",
+    "lib",
+    "!**/__tests__",
+    "!**/__fixtures__",
+    "!**/__mocks__"
+  ],
+  "react-native-builder-bob": {
+    "source": "src",
+    "output": "lib",
+    "targets": [
+      [
+        "commonjs",
+        {
+          "esm": false
+        }
+      ]
+    ]
+  },
+  "eslintIgnore": [
+    "node_modules/",
+    "lib/"
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "baseUrl": ".",
+    "paths": {
+      "@core/*": ["packages/core/src/*"],
+      "@cli/*": ["packages/cli/src/*"],
+      "@mobile-sdk/*": ["packages/mobile-sdk/src/*"],
+      "@embed-script/*": ["packages/embed-script/src/*"],
+      "@infrastructure/*": ["packages/infrastructure/src/*"],
+      "@server/*": ["packages/server/src/*"]
+    },
+    "allowJs": true
+  },
+  "include": [
+    ".eslintrc.js",
+    ".dependency-cruiser.js",
+    "eslint.config.js",
+    "jest.config.cjs",
+    "packages/infrastructure/jest.config.js",
+    "packages/infrastructure/setup.js",
+    "packages/infrastructure/assets/lambda/**/*.js"
+  ],
+  "exclude": ["node_modules", "**/dist"]
+}

@@ -1,0 +1,9 @@
+# This file designates code owners for different parts of the codebase.
+# See: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Global fallback owners (replace with actual GitHub usernames or team names)
+* @username1 @github_team_name
+
+# Per-package ownership (examples)
+# packages/core/ @core-team
+# packages/server/ @backend-team 

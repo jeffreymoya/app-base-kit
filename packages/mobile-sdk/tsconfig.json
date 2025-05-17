@@ -1,0 +1,29 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    // Specific options for React Native / mobile-sdk if needed
+    "jsx": "react-native",
+    "lib": ["esnext", "dom"], // DOM might be needed for some RN related typings
+    "target": "esnext",
+    "module": "esnext",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+
+    // Output options are typically handled by the build tool (bob)
+    // but good to have for local tsc checks if needed.
+    "outDir": "./lib", // Matches bob's default output
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "rootDir": "."
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "__tests__/**/*.ts",
+    "__tests__/**/*.tsx"
+  ],
+  "exclude": ["node_modules", "lib"]
+}
