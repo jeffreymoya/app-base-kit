@@ -178,6 +178,59 @@ module.exports = {
         dependencyTypes: ['npm-peer'],
       },
     },
+    {
+      name: 'no-cross-package-imports-except-via-public-apis',
+      severity: 'error',
+      comment:
+        'Dependencies between packages must go through their public API (index.ts or package.json main).',
+      from: { path: 'packages/([^/]+)/src/(.+)' },
+      to: {
+        path: 'packages/([^/]+)/src/(.+)',
+        pathNot: ['packages/$1/src/index\.ts$', 'packages/$1/package\.json$'],
+      },
+    },
+    // Example: Whitelisting layers (core -> services -> app)
+    // This is a simplified example. You'll need to adjust paths and layers based on your actual structure.
+    {
+      name: 'enforce-layering',
+      severity: 'warn',
+      comment:
+        'Enforce architectural layering (e.g., app can use services, services can use core).',
+      from: { path: 'packages/app/src/(.+)' }, // Example: app layer
+      to: { path: 'packages/core/src/(.+)' }, // Example: core layer can't be directly used by app, should go via services
+      // This rule would need to be more sophisticated, likely involving multiple rules
+      // or more complex path regexes to correctly define and enforce layers like:
+      // - app cannot import from core directly
+      // - services cannot import from app
+      // - core cannot import from services or app
+    },
+    {
+      name: 'services-can-use-core',
+      severity: 'info',
+      from: { path: 'packages/services/src/(.+)' },
+      to: { path: 'packages/core/src/(.+)' },
+    },
+    {
+      name: 'app-can-use-services',
+      severity: 'info',
+      from: { path: 'packages/app/src/(.+)' },
+      to: { path: 'packages/services/src/(.+)' },
+    },
+    {
+      name: 'no-services-to-app',
+      severity: 'error',
+      comment: 'Services layer should not depend on the App layer.',
+      from: { path: 'packages/services/src/(.+)' },
+      to: { path: 'packages/app/src/(.+)' },
+    },
+    {
+      name: 'no-core-to-services-or-app',
+      severity: 'error',
+      comment: 'Core layer should not depend on Services or App layers.',
+      from: { path: 'packages/core/src/(.+)' },
+      to: { path: ['packages/services/src/(.+)', 'packages/app/src/(.+)'] },
+    },
+    // Add more rules as needed, e.g., for specific packages or patterns
   ],
   options: {
     /* Which modules not to follow further when encountered */
@@ -206,8 +259,7 @@ module.exports = {
        As in practice only commonjs ('cjs') and ecmascript modules ('es6')
        are widely used, you can limit the moduleSystems to those.
      */
-
-    // moduleSystems: ['cjs', 'es6'],
+    moduleSystems: ['amd', 'cjs', 'es6', 'tsd'],
 
     /* 
       false: don't look at JSDoc imports (the default)
@@ -256,7 +308,7 @@ module.exports = {
        defaults to './tsconfig.json'.
      */
     tsConfig: {
-      fileName: 'tsconfig.base.json',
+      fileName: 'tsconfig.json',
     },
 
     /* Webpack configuration to use to get resolve options from.
@@ -302,7 +354,7 @@ module.exports = {
       /* List of conditions to check for in the exports field.
          Only works when the 'exportsFields' array is non-empty.
       */
-      conditionNames: ['import', 'require', 'node', 'default', 'types'],
+      conditionNames: ['import', 'require', 'node', 'default'],
       /* The extensions, by default are the same as the ones dependency-cruiser
          can access (run `npx depcruise --info` to see which ones that are in
          _your_ environment). If that list is larger than you need you can pass
@@ -342,7 +394,7 @@ module.exports = {
            collapses everything in node_modules to one folder deep so you see
            the external modules, but their innards.
          */
-        collapsePattern: 'node_modules/(?:@[^/]+/[^/]+|[^/]+)',
+        collapsePattern: 'node_modules/[^/]+',
 
         /* Options to tweak the appearance of your graph.See
            https://github.com/sverweij/dependency-cruiser/blob/main/doc/options-reference.md#reporteroptions

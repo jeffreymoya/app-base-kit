@@ -35,6 +35,9 @@ jobs:
       - name: Run linters
         run: yarn lint
 
+      - name: Lint dependencies
+        run: yarn lint:deps
+
       - name: Run tests
         run: yarn test --coverage
 
