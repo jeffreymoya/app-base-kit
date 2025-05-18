@@ -6,7 +6,14 @@
     "composite": true,
     "declaration": true,
     "declarationMap": true,
-    "sourceMap": true
+    "sourceMap": true,
+    "stripInternal": false,
+    "noErrorTruncation": true,
+    "plugins": [
+      {
+        "name": "@tsdoc/tsdoc-plugin-microsoft-docs"
+      }
+    ]
   },
   "include": ["src/**/*.ts", "__tests__/**/*.ts"],
   "exclude": ["node_modules", "dist"]

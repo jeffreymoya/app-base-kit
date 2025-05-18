@@ -1,7 +1,9 @@
 {
   "name": "@app-base-kit/core",
   "version": "0.1.0",
-  "private": true,
+  "publishConfig": {
+    "access": "restricted"
+  },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
