@@ -19,7 +19,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@app-base-kit/core@workspace:packages/core"
   dependencies:
-    "@types/node": "npm:^18.0.0"
+    "@types/node": "npm:^22.15.18"
     dotenv: "npm:^16.3.1"
     typescript: "npm:^5.0.0"
     winston: "npm:^3.10.0"
@@ -2657,15 +2657,6 @@ __metadata:
   dependencies:
     undici-types: "npm:~5.26.4"
   checksum: 10c0/9f9b4a1c4e2db2994ef36f165322b3bb807466e3f92751ed52a40af0212917bc6ecd12dc6775eb829176b71b26570bea9c6a0a2d9e3ae6b496721c71934244db
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:^18.0.0":
-  version: 18.19.100
-  resolution: "@types/node@npm:18.19.100"
-  dependencies:
-    undici-types: "npm:~5.26.4"
-  checksum: 10c0/5524303171eee6788df45d736f5783b5bea27803a596b9cd5669f45487a619e5d8d41d56dd55b8c85c677ffd7c045edd8daea8c4b37e70290bee2a482fc605f6
   languageName: node
   linkType: hard
 
