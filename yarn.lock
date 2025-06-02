@@ -23,7 +23,7 @@ __metadata:
     dotenv: "npm:^16.3.1"
     typescript: "npm:^5.0.0"
     winston: "npm:^3.10.0"
-    zod: "npm:^3.22.4"
+    zod: "npm:^3.25.47"
   languageName: unknown
   linkType: soft
 
@@ -10619,9 +10619,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zod@npm:^3.22.4":
-  version: 3.24.4
-  resolution: "zod@npm:3.24.4"
-  checksum: 10c0/ab3112f017562180a41a0f83d870b333677f7d6b77f106696c56894567051b91154714a088149d8387a4f50806a2520efcb666f108cd384a35c236a191186d91
+"zod@npm:^3.25.47":
+  version: 3.25.47
+  resolution: "zod@npm:3.25.47"
+  checksum: 10c0/932fd9dc37f0af65b9ce6c514904e1dea92fb7e7e0b75ddba393f7245cf73aa30c03c4ec9d2d7b35f2d825b49b3ceb96ba6e47401d801d90d5c989de27e94f7a
   languageName: node
   linkType: hard
