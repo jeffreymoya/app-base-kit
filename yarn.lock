@@ -1611,13 +1611,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cdktf/provider-aws@npm:^19.0.0":
-  version: 19.64.0
-  resolution: "@cdktf/provider-aws@npm:19.64.0"
+"@cdktf/provider-aws@npm:^21.9.0":
+  version: 21.9.0
+  resolution: "@cdktf/provider-aws@npm:21.9.0"
   peerDependencies:
-    cdktf: ^0.20.0
-    constructs: ^10.3.0
-  checksum: 10c0/a81ddc0e4f3ebc98786210e584171c29ae504d9877ef85e5d9aa8f16f80e18baa5db65ee5095a70152b808e44f247d45ee1ae7638a6bb5cdab2397f3cba95b68
+    cdktf: ^0.21.0
+    constructs: ^10.4.2
+  checksum: 10c0/0a678e23f6290d82bd7add139f6d3ed3bc7c012bf218d14d86749b7465741dff367b301d2fef1b66a9c99e3606daa394bdf1a3fc4ef23d6b6c4029e49389eb05
   languageName: node
   linkType: hard
 
@@ -5701,7 +5701,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "infrastructure@workspace:packages/infrastructure"
   dependencies:
-    "@cdktf/provider-aws": "npm:^19.0.0"
+    "@cdktf/provider-aws": "npm:^21.9.0"
     "@types/jest": "npm:^29.5.14"
     "@types/node": "npm:^22.15.18"
     cdktf: "npm:^0.20.12"
